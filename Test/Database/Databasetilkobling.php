@@ -11,11 +11,12 @@ and open the template in the editor.
     </head>
     <body>
 <?php
-$kobling = mysqli_connect("localhost","root","","123");
+$kobling = mysqli_connect("localhost","root","","Bachelor207");
 
 // Sjekker tilkobling
 if (!$kobling) {
-    mysqli_error($kobling);
+    echo "Feil i tilkobling";
+    die (mysqli_error($kobling));
 } 
 echo "Database er tilkoblet";        
 ?>
