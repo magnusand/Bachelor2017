@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
 <?php
-$kobling = mysqli_connect("localhost","root","","Bachelor207");
+$kobling = mysqli_connect("localhost","root","","Bachelor2017");
 
 // Sjekker tilkobling
 if (!$kobling) {
