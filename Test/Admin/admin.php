@@ -1,4 +1,5 @@
-<?php
+<?php 
+//En test
 session_start();
 echo "Velkommen"." " .$_POST['username'];
 //Oppretter en session med username
