@@ -15,10 +15,12 @@ $kobling = mysqli_connect("localhost","root","","Bachelor2017");
 
 // Sjekker tilkobling
 if (!$kobling) {
-    echo "Feil i tilkobling";
-    die (mysqli_error($kobling));
-} 
-echo "Database er tilkoblet";        
+   
+    echo (mysqli_error($kobling));
+}
+else{
+echo "Database er tilkoblet";   
+}
 ?>
     </body>
 </html>
