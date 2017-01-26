@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>Innlogg admin</h1>
-        
+        <!-- test av Magnus-->        
         <!--INNLOGGSKJEMA -->
         <form action="admin.php" method="POST" name="innlogg">
             <label><b>Brukernavn</b></label>
