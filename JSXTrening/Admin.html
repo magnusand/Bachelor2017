@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>React Training</title>
+  		<!-- reference to the React library -->
+  		<script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+		<script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+		<!-- Babel turns JSX to javascript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+		<!-- link to stylesheet -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div id = "Admin" ></div>
+               
+		<script type="text/babel">
+                    
+                    var AdminLogIn = React.createClass({
+                        
+                       render: function () {
+                           return (
+                            <div>
+                            <h2>Researcher login:</h2>
+                            Username:<input type="text"></input>
+                            <br/>
+                            Password:<input type="text"></input>
+                            <br/>
+                             <button>Logg inn</button>
+                             
+                            <br/><br/>
+                            <a href="www.vg.no">Gå tilbake</a>
+                           </div>
+                           );
+                       } 
+                        
+                        
+                    }); 
+                    
+                ReactDOM.render(<AdminLogIn/>, document.getElementById('Admin'));
+             
+                                
+                                
+                                
+		</script>
+	</body>
+</html>
