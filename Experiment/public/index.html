@@ -20,7 +20,7 @@
 
                 buttonClicked: function(newUsername) {
                     var database = firebase.database();
-                    var ref = database.ref('user');
+                    var ref = database.ref('users');
 
                     var data = {
                         name: this.refs.usernameInput.value
@@ -40,7 +40,6 @@
                     );
                 }
             });
-
 
             var User = React.createClass({
                 render: function() {
@@ -62,6 +61,8 @@
                     );
                 }
             });
+
+
      
             var destination = document.querySelector("#container");
      
@@ -75,7 +76,6 @@
                     <br/>
                     <h3>Username:</h3>
                     <SubmitUser />
-                    <a href="www.vg.no">Admin</a>
                 </div>,
                 destination
             );
