@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Test</title>
+    <!-- reference to the React library -->
+      <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <!-- Babel turns JSX to javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <!-- link to stylesheet -->
+    <link rel="style<sheet" type="text/css" href="style.css">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+        <script type="text/babel">
+
+                var Login = React.createClass ({
+
+  getInitialState: function(){
+        return { loggedIn: 'false' };
+    },
+
+    handleLogIn: function(event){
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // ERROR HANDLING
+        var errorCode = error.code;
+        var errorMessage = error.message; 
+
+        // [... error handling ...]   
+
+      });
+
+      this.setState({ loggedIn: 'true' });
+
+    },
+
+  authenticateUser: function(x){
+
+    // INITIALIZATION
+    var config = {
+
+    apiKey: "AIzaSyA6ll2lfKu0gxOcnlfqb54IRNLaRUUil8Q",
+    authDomain: "randtest-e8199.firebaseapp.com",
+    databaseURL: "https://randtest-e8199.firebaseio.com",
+    storageBucket: "randtest-e8199.appspot.com",
+    messagingSenderId: "109752125195"
+};
+    firebase.initializeApp(config);
+
+    //CHECKING IF SIGNED IN
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // USER IS SIGNED IN
+        console.log('authenticateUser(): true');
+        this.setState({ loggedIn: 'true' });
+      }
+      else {
+        // USER IS SIGNED OUT
+        console.log('authenticateUser(): false');
+        this.setState({ loggedIn: 'false' });
+      }
+    });
+  },
+
+  whichWindowToShow: function() {
+    if (this.state.loggedIn === 'unknown'){
+      return (
+        <div>
+        <Loading type='bubbles' color='#e3e3e3' />
+        </div>
+      );
+    }
+    else if (this.state.loggedIn === 'true'){
+      return (
+        <div>
+        <Backend />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="login_wrapper">
+        <div className="login_box">
+        <h1>Member Login</h1>
+          <div className="login_fields">
+            <input type="text" id="email" name="email" placeholder="mail"/>
+            <input type="password" id="password" name="password" placeholder="password"/>
+            <button id="signin" name="signin" onClick={this.handleLogIn}>Login</button>
+          </div>
+        </div>
+        </div>
+      );
+    }
+  },
+
+  render: function() {
+    this.authenticateUser();
+    return (
+      <div>
+        { this.whichWindowToShow() }
+      </div>
+    );
+  }
+}); // END LOGIN
