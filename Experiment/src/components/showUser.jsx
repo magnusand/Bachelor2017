@@ -20,3 +20,5 @@ var showUser = React.createClass({
         );
     }
 });
+
+export default showUser;
