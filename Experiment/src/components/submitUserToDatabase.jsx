@@ -1,3 +1,5 @@
+import React from 'react';
+
 var SubmitUserToDatabase = React.createClass ({
 
     buttonClicked: function(newUsername) {
@@ -22,3 +24,5 @@ var SubmitUserToDatabase = React.createClass ({
         );
     }
 });
+
+export default SubmitUserToDatabase;

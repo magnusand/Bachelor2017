@@ -1,3 +1,5 @@
+import React from 'react';
+
 var showUser = React.createClass({
     render: function() {
         var letterStyle = {
